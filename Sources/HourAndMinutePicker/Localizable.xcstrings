@@ -1,0 +1,28 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "^[%lld hour](inflect: true)" : {
+      "comment" : "Picker Label: An accessibilityLabel of the hour component.",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "^[%lld 時](inflect: true)"
+          }
+        }
+      }
+    },
+    "^[%lld min](inflect: true)" : {
+      "comment" : "Picker Label: An accessibilityLabel of the minute component.",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "^[%lld 分](inflect: true)"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

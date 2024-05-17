@@ -3,8 +3,9 @@
 //  Created by yosshi4486 on 2024/05/17.
 //
 
-import UIKit
+import SwiftUI
 
+#if os(iOS)
 /// A view that uses a spinning-wheel or slot-machine metaphor to pick a set of hour and minute.
 public class UIHourAndMinutePickerView: UIView, UIPickerViewDelegate, UIPickerViewDataSource {
         
@@ -225,9 +226,9 @@ public class UIHourAndMinutePickerView: UIView, UIPickerViewDelegate, UIPickerVi
         
         switch component {
         case 0:
-            return NSAttributedString(AttributedString(localized: "^[\(row) hour](inflect: true)"))
+            return NSAttributedString(AttributedString(localized: "^[\(row) hour](inflect: true)", bundle: .module, comment: "Picker Label: An accessibilityLabel of the hour component."))
         case 1:
-            return NSAttributedString(AttributedString(localized: "^[\(row * minuteInterval) min](inflect: true)"))
+            return NSAttributedString(AttributedString(localized: "^[\(row * minuteInterval) min](inflect: true)", bundle: .module, comment: "Picker Label: An accessibilityLabel of the minute component."))
         default:
             fatalError("Development Failure")
         }
@@ -239,10 +240,10 @@ public class UIHourAndMinutePickerView: UIView, UIPickerViewDelegate, UIPickerVi
     /// - Note: Automatic grammer agreement APIs are always correct than mine.
     private func updateFixedLabels() {
         
-        let hourString = String(AttributedString(localized: "^[\(selectedHour) hour](inflect: true)").inflected().characters).dropFirst(selectedHour.description.count + 1)
+        let hourString = String(AttributedString(localized: "^[\(selectedHour) hour](inflect: true)", bundle: .module).inflected().characters).dropFirst(selectedHour.description.count + 1)
         fixedHoursLabel.text = String(hourString)
         
-        let minuteString = String(AttributedString(localized: "^[\(selectedMinute) min](inflect: true)").inflected().characters).dropFirst(selectedMinute.description.count + 1)
+        let minuteString = String(AttributedString(localized: "^[\(selectedMinute) min](inflect: true)", bundle: .module).inflected().characters).dropFirst(selectedMinute.description.count + 1)
         fixedMinLabel.text = String(minuteString)
 
     }
@@ -298,3 +299,4 @@ extension UIHourAndMinutePickerView {
     return UIHourAndMinutePickerView()
 }
 
+#endif

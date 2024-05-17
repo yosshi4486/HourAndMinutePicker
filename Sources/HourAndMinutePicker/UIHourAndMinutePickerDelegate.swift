@@ -5,6 +5,8 @@
 
 import Foundation
 
+#if os(iOS)
+
 /// The interface for a picker view’s data source.
 public protocol UIHourAndMinutePickerViewDelegate : AnyObject {
     
@@ -17,3 +19,5 @@ public protocol UIHourAndMinutePickerViewDelegate : AnyObject {
     func pickerView(_ pickerView: UIHourAndMinutePickerView, didSelectHour hour: Int, minute: Int)
     
 }
+
+#endif

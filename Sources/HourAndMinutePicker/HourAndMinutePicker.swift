@@ -5,6 +5,8 @@
 
 import SwiftUI
 
+#if os(iOS)
+
 /// A control for selecting a set of hour and minute.
 public struct HourAndMinutePicker: UIViewRepresentable {
     
@@ -75,8 +77,5 @@ public struct HourAndMinutePicker: UIViewRepresentable {
     
 }
 
-#Preview {
-    @State var hour: Int = 1
-    @State var minute: Int = 0
-    return HourAndMinutePicker(hour: $hour, minute: $minute)
-}
+
+#endif
