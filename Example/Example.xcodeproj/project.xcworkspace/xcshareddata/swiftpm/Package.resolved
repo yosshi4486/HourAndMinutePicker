@@ -1,0 +1,15 @@
+{
+  "originHash" : "886fa373836cd53cf8a0ad6d6411e97d3338e76a08411085e12c7c0b15eaa798",
+  "pins" : [
+    {
+      "identity" : "hourandminutepicker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yosshi4486/HourAndMinutePicker",
+      "state" : {
+        "branch" : "main",
+        "revision" : "8f04ca9b955ae4ee458f2ed2a03a29011880ca37"
+      }
+    }
+  ],
+  "version" : 3
+}

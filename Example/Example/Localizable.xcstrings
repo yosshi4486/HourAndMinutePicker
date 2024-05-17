@@ -1,0 +1,16 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Sample Project" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サンプルプロジェクト"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
