@@ -43,7 +43,7 @@ public class UIHourAndMinutePickerView: UIView, UIPickerViewDelegate, UIPickerVi
     private var fixedHoursLabel: UILabel!
     private var fixedMinLabel: UILabel!
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         
         // Initialize picker view
