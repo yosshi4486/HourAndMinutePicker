@@ -7,7 +7,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "^[%lld 時](inflect: true)"
+            "value" : "^[%lld 時間](inflect: true)"
           }
         },
         "zh-Hans" : {
