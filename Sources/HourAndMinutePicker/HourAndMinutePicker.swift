@@ -48,6 +48,8 @@ public struct HourAndMinutePicker: UIViewRepresentable {
     }
     
     public func updateUIView(_ uiView: UIHourAndMinutePickerView, context: Context) {
+        uiView.hourMaximumValue = context.coordinator.hourMaximumValue
+        uiView.minuteInterval = context.coordinator.minuteInterval
         uiView.selectHour(hour.wrappedValue)
         uiView.selectMinute(minute.wrappedValue)
     }
