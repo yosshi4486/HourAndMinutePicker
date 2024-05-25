@@ -22,7 +22,11 @@ public class UIHourAndMinutePickerView: UIView, UIPickerViewDelegate, UIPickerVi
     public private(set) var selectedMinute: Int = 0
     
     /// The maximum hour value of picker view. The default value is `23`.
-    public var hourMaximumValue: Int = 23
+    public var hourMaximumValue: Int = 23 {
+        didSet {
+            pickerView.reloadComponent(0)
+        }
+    }
     
     /// The interval at which the picker should display minutes.
     ///
@@ -30,6 +34,9 @@ public class UIHourAndMinutePickerView: UIView, UIPickerViewDelegate, UIPickerVi
     public var minuteInterval: Int = 1 {
         willSet {
             precondition(1 <= newValue && newValue <= 30 && (60 % newValue == 0))
+        }
+        didSet {
+            pickerView.reloadComponent(1)
         }
     }
     
