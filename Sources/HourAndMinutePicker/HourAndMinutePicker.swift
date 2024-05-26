@@ -17,7 +17,7 @@ public struct HourAndMinutePicker: UIViewRepresentable {
     public var minute: Binding<Int>
     
     /// The maximum hour value of picker view.
-    public var hourMaximumValue: Int
+    public var maximumHour: Int
     
     /// The interval at which the picker should display minutes.
     ///
@@ -29,33 +29,33 @@ public struct HourAndMinutePicker: UIViewRepresentable {
     /// - Parameters:
     ///   - hour: A binding to an hour value.
     ///   - minute: A binding to a minute value.
-    ///   - hourMaximumValue: The maximum hour value of picker view. The default value is `23`.
+    ///   - maximumHour: The maximum hour value of picker view. The default value is `23`.
     ///   - minuteInterval: The interval at which the picker should display minutes. The interval value must be evenly divided into 60; if it isn’t, this view raises a runtime error. The default and minimum values are 1; the maximum value is 30.
-    public init(hour: Binding<Int>, minute: Binding<Int>, hourMaximumValue: Int = 23, minuteInterval: Int = 1) {
+    public init(hour: Binding<Int>, minute: Binding<Int>, maximumHour: Int = 23, minuteInterval: Int = 1) {
         precondition(1 <= minuteInterval && minuteInterval <= 30 && (60 % minuteInterval == 0))
         self.hour = hour
         self.minute = minute
-        self.hourMaximumValue = hourMaximumValue
+        self.maximumHour = maximumHour
         self.minuteInterval = minuteInterval
     }
 
     public func makeUIView(context: Context) -> UIHourAndMinutePickerView {
         let view = UIHourAndMinutePickerView()
         view.delegate = context.coordinator
-        view.hourMaximumValue = self.hourMaximumValue
+        view.maximumHour = self.maximumHour
         view.minuteInterval = self.minuteInterval
         return view
     }
     
     public func updateUIView(_ uiView: UIHourAndMinutePickerView, context: Context) {
-        uiView.hourMaximumValue = context.coordinator.hourMaximumValue
+        uiView.maximumHour = context.coordinator.maximumHour
         uiView.minuteInterval = context.coordinator.minuteInterval
         uiView.selectHour(hour.wrappedValue)
         uiView.selectMinute(minute.wrappedValue)
     }
     
     public func makeCoordinator() -> Coordinator {
-        Coordinator(hour: hour, minute: minute, hourMaximumValue: hourMaximumValue, minuteInterval: minuteInterval)
+        Coordinator(hour: hour, minute: minute, maximumHour: maximumHour, minuteInterval: minuteInterval)
     }
     
     public func sizeThatFits(_ proposal: ProposedViewSize, uiView: UIHourAndMinutePickerView, context: Context) -> CGSize? {
@@ -74,13 +74,13 @@ public struct HourAndMinutePicker: UIViewRepresentable {
     public class Coordinator: NSObject, UIHourAndMinutePickerViewDelegate {
         var hour: Binding<Int>
         var minute: Binding<Int>
-        var hourMaximumValue: Int
+        var maximumHour: Int
         var minuteInterval: Int
         
-        init(hour: Binding<Int>, minute: Binding<Int>, hourMaximumValue: Int, minuteInterval: Int) {
+        init(hour: Binding<Int>, minute: Binding<Int>, maximumHour: Int, minuteInterval: Int) {
             self.hour = hour
             self.minute = minute
-            self.hourMaximumValue = hourMaximumValue
+            self.maximumHour = maximumHour
             self.minuteInterval = minuteInterval
         }
         
