@@ -22,7 +22,7 @@ public class UIHourAndMinutePickerView: UIView, UIPickerViewDelegate, UIPickerVi
     public private(set) var selectedMinute: Int = 0
     
     /// The maximum hour value of picker view. The default value is `23`.
-    public var hourMaximumValue: Int = 23 {
+    public var maximumHour: Int = 23 {
         didSet {
             pickerView.reloadComponent(0)
         }
@@ -114,7 +114,7 @@ public class UIHourAndMinutePickerView: UIView, UIPickerViewDelegate, UIPickerVi
     /// This method doesn't trigger `delegate.pickerView(_:didSelectHour:minute:)`.
     ///
     /// - Parameters:
-    ///   - hour: A hour value from 0 to `hourMaximumValue`.
+    ///   - hour: A hour value from 0 to `maximumHour`.
     ///   - animated: The boolean value indicating whether the change triggers selection animations.
     public func selectHour(_ hour: Int, animated: Bool = false) {
         
@@ -163,7 +163,7 @@ public class UIHourAndMinutePickerView: UIView, UIPickerViewDelegate, UIPickerVi
         switch component {
         case 0:
             // Including zero
-            return hourMaximumValue + 1
+            return maximumHour + 1
             
         case 1:
             return 60 / minuteInterval
