@@ -22,7 +22,7 @@ public struct HourAndMinutePicker: UIViewRepresentable {
     /// The interval at which the picker should display minutes.
     ///
     /// Use this property to set the interval displayed by the minutes wheel (for example, 15 minutes). The interval value must be evenly divided into 60; if it isn’t, this view raises a runtime error. The default and minimum values are 1; the maximum value is 30.
-    public var minuteInterval: Int = 1
+    public var minuteInterval: Int
     
     /// Initialize a picker from given bindings and options.
     ///
