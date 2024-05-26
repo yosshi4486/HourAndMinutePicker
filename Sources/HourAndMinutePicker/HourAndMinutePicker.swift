@@ -48,14 +48,14 @@ public struct HourAndMinutePicker: UIViewRepresentable {
     }
     
     public func updateUIView(_ uiView: UIHourAndMinutePickerView, context: Context) {
-        uiView.maximumHour = context.coordinator.maximumHour
-        uiView.minuteInterval = context.coordinator.minuteInterval
-        uiView.selectHour(hour.wrappedValue)
-        uiView.selectMinute(minute.wrappedValue)
+        uiView.maximumHour = self.maximumHour
+        uiView.minuteInterval = self.minuteInterval
+        uiView.selectHour(self.hour.wrappedValue)
+        uiView.selectMinute(self.minute.wrappedValue)
     }
     
     public func makeCoordinator() -> Coordinator {
-        Coordinator(hour: hour, minute: minute, maximumHour: maximumHour, minuteInterval: minuteInterval)
+        Coordinator(hour: hour, minute: minute)
     }
     
     public func sizeThatFits(_ proposal: ProposedViewSize, uiView: UIHourAndMinutePickerView, context: Context) -> CGSize? {
@@ -74,14 +74,10 @@ public struct HourAndMinutePicker: UIViewRepresentable {
     public class Coordinator: NSObject, UIHourAndMinutePickerViewDelegate {
         var hour: Binding<Int>
         var minute: Binding<Int>
-        var maximumHour: Int
-        var minuteInterval: Int
         
-        init(hour: Binding<Int>, minute: Binding<Int>, maximumHour: Int, minuteInterval: Int) {
+        init(hour: Binding<Int>, minute: Binding<Int>) {
             self.hour = hour
             self.minute = minute
-            self.maximumHour = maximumHour
-            self.minuteInterval = minuteInterval
         }
         
         public func pickerView(_ pickerView: UIHourAndMinutePickerView, didSelectHour hour: Int, minute: Int) {
