@@ -203,6 +203,12 @@ public class UIHourAndMinutePickerView: UIView, UIPickerViewDelegate, UIPickerVi
             fatalError("Development Failure")
         }
         
+        // Don't forgive both hour and min is 0. If the user selected the values, set the minimum minute to min.
+        if selectedHour == 0 && selectedMinute == 0 {
+            selectedMinute = minuteInterval
+            pickerView.selectRow(1, inComponent: 1, animated: true)
+        }
+        
         updateFixedLabels()
         delegate?.pickerView(self, didSelectHour: selectedHour, minute: selectedMinute)
     }
