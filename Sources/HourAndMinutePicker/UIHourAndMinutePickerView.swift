@@ -253,15 +253,15 @@ public class UIHourAndMinutePickerView: UIView, UIPickerViewDelegate, UIPickerVi
     /// - Note: Automatic grammer agreement APIs are always correct than mine.
     private func updateFixedLabels() {
         if selectedHour == 1 {
-            fixedHoursLabel.text = String(localized: "hour singular")
+            fixedHoursLabel.text = String(localized: "hour singular", bundle: .module)
         } else {
-            fixedHoursLabel.text = String(localized: "hour plural")
+            fixedHoursLabel.text = String(localized: "hour plural", bundle: .module)
         }
         
         if selectedMinute == 1 {
-            fixedMinLabel.text = String(localized: "minute singular")
+            fixedMinLabel.text = String(localized: "minute singular", bundle: .module)
         } else {
-            fixedMinLabel.text = String(localized: "minute plural")
+            fixedMinLabel.text = String(localized: "minute plural", bundle: .module)
         }
     }
         
