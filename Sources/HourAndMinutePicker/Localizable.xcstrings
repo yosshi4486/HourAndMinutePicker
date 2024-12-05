@@ -282,7 +282,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "minutes"
+            "value" : "min"
           }
         },
         "es" : {
@@ -352,7 +352,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "minute"
+            "value" : "min"
           }
         },
         "es" : {
